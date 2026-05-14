@@ -1,156 +1,67 @@
 @import "tailwindcss";
-@tailwind utilities;
 
-:root {
-  /* Colores principales */
-  --color-primary: 221 70% 55%; /* Azul principal */
-  --color-primary-light: 221 70% 65%;
-  --color-primary-dark: 221 70% 45%;
-
-  /* Colores de acento */
-  --color-accent: 200 85% 60%; /* Azul claro */
-  --color-accent-light: 200 85% 70%;
-  --color-accent-dark: 200 85% 50%;
-
-  /* Colores de fondo */
-  --color-background: 0 0% 100%; /* Blanco */
-  --color-card: 210 20% 98%; /* Gris muy claro */
-  --color-card-hover: 210 20% 96%; /* Gris claro para hover */
-
-  /* Colores de texto */
-  --color-text: 220 20% 20%; /* Casi negro */
-  --color-text-muted: 220 10% 40%; /* Gris oscuro */
-  --color-text-light: 220 10% 60%; /* Gris medio */
-
-  /* Colores de estado */
-  --color-success: 142 72% 29%; /* Verde */
-  --color-warning: 38 92% 50%; /* Amarillo */
-  --color-danger: 0 84% 60%; /* Rojo */
-
-  /* Bordes y sombras */
-  --color-border: 220 13% 91%;
-  --color-border-hover: 220 13% 80%;
-  --color-ring: 221 70% 55%;
-
-  /* Radios y espaciados */
-  --radius: 0.5rem;
-  --header-height: 4rem;
+@theme {
+  --color-background: oklch(0.97 0.005 240);
+  --color-foreground: oklch(0.2 0.02 250);
+  --color-card: oklch(0.98 0.003 240);
+  --color-card-foreground: oklch(0.2 0.02 250);
+  --color-popover: oklch(1 0 0);
+  --color-popover-foreground: oklch(0.2 0.02 250);
+  --color-primary: oklch(0.55 0.12 250);
+  --color-primary-foreground: oklch(0.98 0.005 250);
+  --color-secondary: oklch(0.92 0.01 250);
+  --color-secondary-foreground: oklch(0.3 0.03 250);
+  --color-muted: oklch(0.92 0.01 250);
+  --color-muted-foreground: oklch(0.5 0.02 250);
+  --color-accent: oklch(0.92 0.01 250);
+  --color-accent-foreground: oklch(0.3 0.03 250);
+  --color-destructive: oklch(0.55 0.2 25);
+  --color-destructive-foreground: oklch(0.98 0.005 0);
+  --color-border: oklch(0.88 0.01 250);
+  --color-input: oklch(0.88 0.01 250);
+  --color-ring: oklch(0.55 0.12 250);
+  --radius: 0.75rem;
 }
 
 .dark {
-  /* Colores principales */
-  --color-primary: 217 70% 55%; /* Azul principal */
-  --color-primary-light: 217 70% 65%;
-  --color-primary-dark: 217 70% 45%;
-
-  /* Colores de acento */
-  --color-accent: 199 89% 48%; /* Azul claro */
-  --color-accent-light: 199 89% 58%;
-  --color-accent-dark: 199 89% 38%;
-
-  /* Colores de fondo */
-  --color-background: 222 47% 11%; /* Azul muy oscuro */
-  --color-card: 223 47% 14%; /* Azul oscuro */
-  --color-card-hover: 223 47% 16%; /* Azul oscuro para hover */
-
-  /* Colores de texto */
-  --color-text: 210 20% 98%; /* Blanco */
-  --color-text-muted: 215 16% 75%; /* Gris claro */
-  --color-text-light: 215 16% 85%; /* Gris más claro */
-
-  /* Colores de estado */
-  --color-success: 142 72% 40%; /* Verde más brillante */
-  --color-warning: 38 92% 60%; /* Amarillo más brillante */
-  --color-danger: 0 84% 70%; /* Rojo más brillante */
-
-  /* Bordes y sombras */
-  --color-border: 217 19% 27%;
-  --color-border-hover: 217 19% 35%;
-  --color-ring: 217 70% 55%;
+  --color-background: oklch(0.12 0.02 250);
+  --color-foreground: oklch(0.95 0.01 250);
+  --color-card: oklch(0.18 0.02 250);
+  --color-card-foreground: oklch(0.95 0.01 250);
+  --color-popover: oklch(0.18 0.02 250);
+  --color-popover-foreground: oklch(0.95 0.01 250);
+  --color-primary: oklch(0.65 0.12 250);
+  --color-primary-foreground: oklch(0.12 0.02 250);
+  --color-secondary: oklch(0.25 0.02 250);
+  --color-secondary-foreground: oklch(0.95 0.01 250);
+  --color-muted: oklch(0.25 0.02 250);
+  --color-muted-foreground: oklch(0.65 0.01 250);
+  --color-accent: oklch(0.25 0.02 250);
+  --color-accent-foreground: oklch(0.95 0.01 250);
+  --color-destructive: oklch(0.55 0.2 25);
+  --color-destructive-foreground: oklch(0.98 0.005 0);
+  --color-border: oklch(0.25 0.02 250);
+  --color-input: oklch(0.25 0.02 250);
+  --color-ring: oklch(0.65 0.12 250);
 }
 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
 
-
-@layer utilities {
-  /* Fondos */
-  .bg-background {
-    @apply bg-[hsl(var(--color-background))];
-  }
-  .bg-card {
-    @apply bg-[hsl(var(--color-card))];
-  }
-  .bg-card-hover {
-    @apply bg-[hsl(var(--color-card-hover))];
-  }
-  .bg-primary {
-    @apply bg-[hsl(var(--color-primary))];
-  }
-  .bg-primary-light {
-    @apply bg-[hsl(var(--color-primary-light))];
-  }
-  .bg-primary-dark {
-    @apply bg-[hsl(var(--color-primary-dark))];
-  }
-  .bg-accent {
-    @apply bg-[hsl(var(--color-accent))];
-  }
-  .bg-accent-light {
-    @apply bg-[hsl(var(--color-accent-light))];
-  }
-  .bg-accent-dark {
-    @apply bg-[hsl(var(--color-accent-dark))];
-  }
-
-  /* Textos */
-  .text-foreground {
-    @apply text-[hsl(var(--color-text))];
-  }
-  .text-muted {
-    @apply text-[hsl(var(--color-text-muted))];
-  }
-  .text-light {
-    @apply text-[hsl(var(--color-text-light))];
-  }
-  .text-primary {
-    @apply text-[hsl(var(--color-primary))];
-  }
-  .text-accent {
-    @apply text-[hsl(var(--color-accent))];
-  }
-
-  /* Bordes */
-  .border-border {
-    @apply border-[hsl(var(--color-border))];
-  }
-  .border-border-hover {
-    @apply border-[hsl(var(--color-border-hover))];
-  }
-  .border-primary {
-    @apply border-[hsl(var(--color-primary))];
-  }
-  .border-accent {
-    @apply border-[hsl(var(--color-accent))];
-  }
-
-  /* Anillos */
-  .ring-ring {
-    @apply ring-[hsl(var(--color-ring))];
-  }
-
-  /* Gradientes */
-  .bg-gradient-primary {
-    @apply bg-gradient-to-br from-[hsl(var(--color-primary))] to-[hsl(var(--color-accent))];
-  }
-  .bg-gradient-card {
-    @apply bg-gradient-to-r from-[hsl(var(--color-card))] to-[hsl(var(--color-background))];
-  }
-
-  /* Sombras personalizadas */
-  .shadow-card {
-    @apply shadow-md dark:shadow-lg dark:shadow-black/20;
-  }
-  .shadow-card-hover {
-    @apply shadow-lg dark:shadow-xl dark:shadow-black/30;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

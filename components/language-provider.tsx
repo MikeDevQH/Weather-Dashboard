@@ -3,8 +3,13 @@
 import { type ReactNode, useState, useCallback } from "react"
 import { LanguageContext, translations, type TranslationKey } from "@/lib/languageContext"
 
-function getNestedTranslation(obj: any, path: string): string {
-  const result = path.split('.').reduce((acc, part) => acc?.[part], obj)
+function getNestedTranslation(obj: unknown, path: string): string {
+  const result = path.split('.').reduce<unknown>((acc, part) => {
+    if (acc && typeof acc === 'object' && part in acc) {
+      return (acc as Record<string, unknown>)[part]
+    }
+    return undefined
+  }, obj)
   return typeof result === 'string' ? result : path
 }
 

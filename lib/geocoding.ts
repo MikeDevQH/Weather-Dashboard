@@ -2,6 +2,28 @@ import type { GeocodingResult } from "./types"
 
 const NOMINATIM_BASE = "https://nominatim.openstreetmap.org"
 
+interface NominatimItem {
+  display_name: string
+  lat: string
+  lon: string
+  address?: {
+    country?: string
+    country_code?: string
+    state?: string
+    region?: string
+  }
+}
+
+interface NominatimReverse {
+  address?: {
+    city?: string
+    town?: string
+    village?: string
+    county?: string
+    country?: string
+  }
+}
+
 export async function searchCity(query: string): Promise<GeocodingResult[]> {
   if (!query.trim()) return []
 
@@ -19,9 +41,9 @@ export async function searchCity(query: string): Promise<GeocodingResult[]> {
     throw new Error(`Geocoding error: ${res.status}`)
   }
 
-  const data = await res.json()
+  const data = (await res.json()) as NominatimItem[]
 
-  return data.map((item: any, index: number) => ({
+  return data.map((item, index: number) => ({
     id: index,
     name: item.display_name.split(",")[0],
     latitude: parseFloat(item.lat),
@@ -47,8 +69,8 @@ export async function reverseGeocode(lat: number, lon: number): Promise<{ city: 
     return { city: "", country: "" }
   }
 
-  const data = await res.json()
-  const address = data.address || {}
+  const data = (await res.json()) as NominatimReverse
+  const address = data.address ?? {}
 
   return {
     city: address.city || address.town || address.village || address.county || "Ubicaci\u00f3n actual",

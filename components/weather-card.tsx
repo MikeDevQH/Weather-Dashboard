@@ -36,14 +36,12 @@ export default function WeatherCard({ weather, cityName, countryName }: WeatherC
     return dirs[Math.round(deg / 45) % 8]
   }
 
-  const isNight = !weather.isDay
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-400/90 via-blue-500/80 to-indigo-600/90 text-white p-6 md:p-8 shadow-xl"
+      className="relative overflow-hidden rounded-3xl bg-linear-to-br from-sky-400/90 via-blue-500/80 to-indigo-600/90 text-white p-6 md:p-8 shadow-xl"
     >
       <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/3 translate-x-1/4 blur-3xl" />
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/3 -translate-x-1/4 blur-2xl" />

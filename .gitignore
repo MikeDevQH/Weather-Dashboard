@@ -38,6 +38,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# windsurf generated files
+design-system/
+skills-lock.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

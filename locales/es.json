@@ -5,45 +5,57 @@
   "currentWeather": "Clima Actual",
   "weatherMap": "Mapa Meteorológico",
   "forecast": "Pronóstico",
+  "hourlyForecast": "Pronóstico por Horas",
+  "dailyForecast": "Pronóstico por Días",
   "loading": "Cargando...",
   "error": "Error",
+  "retry": "Reintentar",
   "noForecastData": "No hay datos de pronóstico disponibles.",
   "locationPermissionDenied": "Permiso de ubicación denegado. Habilítalo en tu navegador.",
-
-
+  "searchResults": "Resultados de búsqueda",
+  "noResults": "No se encontraron resultados",
+  "useLocation": "Usar mi ubicación",
+  "feelsLike": "Sensación térmica",
+  "uvIndex": "Índice UV",
+  "airQuality": "Calidad del Aire",
+  "visibility": "Visibilidad",
+  "pressure": "Presión",
+  "humidity": "Humedad",
+  "wind": "Viento",
+  "windDirection": "Dirección del viento",
+  "precipitation": "Precipitación",
+  "precipitationProbability": "Prob. de lluvia",
+  "sunrise": "Amanecer",
+  "sunset": "Atardecer",
+  "today": "Hoy",
+  "now": "Ahora",
+  "good": "Buena",
+  "moderate": "Moderada",
+  "unhealthySensitive": "Dañina para grupos sensibles",
+  "unhealthy": "Dañina",
+  "veryUnhealthy": "Muy dañina",
+  "hazardous": "Peligrosa",
+  "low": "Bajo",
+  "moderateLevel": "Moderado",
+  "high": "Alto",
+  "veryHigh": "Muy alto",
+  "extreme": "Extremo",
   "weather": {
     "loading": "Cargando clima...",
-    "errorFetching": "No se pudieron obtener los datos del clima.",
-    "cityId": "ID Ciudad",
-    "temperature": "Temperatura",
-    "tempMin": "Temp. Mínima",
-    "tempMax": "Temp. Máxima",
-    "humidity": "Humedad",
-    "pressure": "Presión",
-    "windSpeed": "Viento",
-    "visibility": "Visibilidad",
-    "clouds": "Nubosidad",
-    "rainLastHour": "Lluvia última hora",
-    "snowLastHour": "Nieve última hora",
-    "sunrise": "Amanecer",
-    "sunset": "Atardecer",
-    "timezone": "Zona horaria"
+    "errorFetching": "No se pudieron obtener los datos del clima."
   },
-
   "weatherLayer": {
     "clouds": "Nubosidad",
     "windSpeed": "Viento",
     "temperature": "Temperatura",
     "pressure": "Presión",
     "precipitation": "Precipitación"
-    
   },
-
-  "weatherForecast":{
+  "weatherForecast": {
     "errorGeolocation": "Geolocalización no soportada.",
     "loading": "Cargando pronósticos...",
     "notForecast": "No hay datos de pronóstico disponibles.",
-    "rain": "LLuvia",
+    "rain": "Lluvia",
     "sensation": "Sensación"
   }
 }

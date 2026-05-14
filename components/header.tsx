@@ -1,9 +1,10 @@
-"use client"
+  "use client"
 
 import { useTheme } from "next-themes"
-import { CloudRain, Moon, Sun } from "lucide-react"
+import { Moon, Sun } from "lucide-react"
 import { useEffect, useState } from "react"
 import { languages, useLanguage } from "@/lib/languageContext"
+import Logo from "./logo"
 
 export default function Header() {
   const { theme, setTheme } = useTheme()
@@ -18,7 +19,7 @@ export default function Header() {
     return (
       <header className="fixed top-0 inset-x-0 h-16 z-50">
         <div className="h-full max-w-7xl mx-auto flex items-center justify-between px-4 md:px-6">
-          <CloudRain className="h-6 w-6 text-primary" />
+          <Logo size={36} />
         </div>
       </header>
     )
@@ -27,8 +28,8 @@ export default function Header() {
   return (
     <header className="fixed top-0 inset-x-0 h-16 z-50">
       <div className="h-full max-w-7xl mx-auto flex items-center justify-between px-4 md:px-6">
-        <div className="flex items-center gap-2">
-          <CloudRain className="h-6 w-6 text-sky-500" />
+        <div className="flex items-center gap-2.5">
+          <Logo size={36} />
           <span className="text-lg font-bold bg-linear-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent">
             {t("title")}
           </span>

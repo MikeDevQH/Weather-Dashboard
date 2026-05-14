@@ -1,83 +1,76 @@
-# 🌦️ Weather Dashboard
+# Weather Dashboard
 
-## 📌 Descripción
-Weather Dashboard es una aplicación web en tiempo real que muestra información meteorológica precisa utilizando la API de [OpenWeatherMap](https://openweathermap.org). La aplicación obtiene datos basados en la geolocalización del usuario y presenta:
+A modern, interactive weather dashboard built with Next.js, TypeScript, and Tailwind CSS. Delivers accurate real-time weather data using the [Open-Meteo](https://open-meteo.com) API — no API key required.
 
-- Temperatura actual y sensación térmica
-- Humedad, presión atmosférica y velocidad del viento
-- Condiciones climáticas detalladas con iconos dinámicos
-- Pronóstico por horas y días (hasta 7 días)
-- Mapas meteorológicos interactivos con Leaflet
+## Features
 
-## 🚀 Capturas de pantalla
+- **Current Weather**: Temperature, feels-like, humidity, wind, pressure, visibility, UV index
+- **Hourly Forecast**: Interactive charts for temperature and precipitation (24 hours)
+- **7-Day Forecast**: Daily min/max temperatures with precipitation probability
+- **Air Quality Index**: PM2.5, PM10, NO₂, O₃ with color-coded risk levels
+- **City Search**: Search any city worldwide via OpenStreetMap geocoding
+- **Interactive Map**: Leaflet-based map for geographic context
+- **Dark/Light Mode**: System-aware theme with persistent preference
+- **Bilingual**: Full Spanish and English support
+- **Responsive**: Optimized for mobile, tablet, and desktop
 
-![Weather Dashboard - Vista Principal](public/Screenshots/dashboard_main.png)
-![Weather Dashboard - Pronóstico Extendido](public/Screenshots/dashboard_forecast.png) 
+## Tech Stack
 
-## 🛠️ Tecnologías Utilizadas
+| Layer | Technology |
+|-------|------------|
+| Framework | Next.js 15 (App Router) |
+| Language | TypeScript 5.8 |
+| Styling | Tailwind CSS 4 |
+| Animation | Framer Motion |
+| Charts | Recharts |
+| Maps | Leaflet + React-Leaflet |
+| Icons | Lucide React |
+| Fonts | Geist (Sans + Mono) |
+| Weather Data | Open-Meteo API |
+| Geocoding | Nominatim (OpenStreetMap) |
 
-- **Next.js** (App Router)
-- **TypeScript**
-- **Tailwind CSS** (V0 de Vercel)
-- **OpenWeatherMap API** (para datos meteorológicos)
-- **Leaflet.js** (para mapas interactivos)
+## Quick Start
 
-## 🏗️ Instalación y Configuración
-
-### 1️⃣ Clonar el Repositorio
 ```bash
- git clone https://github.com/MikeDevQH/Weather-dashboard.git
- cd Weather-dashboard
+# Clone the repository
+git clone https://github.com/MikeDevQH/Weather-Dashboard.git
+cd Weather-Dashboard
+
+# Install dependencies
+pnpm install
+
+# Run development server
+pnpm dev
 ```
 
-### 2️⃣ Instalar Dependencias
-```bash
- npm install
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Why Open-Meteo?
+
+This project uses [Open-Meteo](https://open-meteo.com) instead of OpenWeatherMap because it provides:
+
+- **Higher accuracy**: Data from ECMWF IFS, NOAA GFS, DWD ICON, and other national weather models
+- **No API key required**: Free for non-commercial use
+- **More parameters**: UV index, air quality, soil moisture, evapotranspiration
+- **Faster setup**: No registration or key management needed
+
+## Project Structure
+
+```
+app/              # Next.js App Router pages and global styles
+components/       # React components (cards, charts, map, search)
+lib/              # API clients, types, utilities, i18n context
+locales/          # Spanish and English translation files
 ```
 
-### 3️⃣ Configurar la API Key de OpenWeatherMap
-Para obtener datos climáticos, necesitas una API Key de OpenWeatherMap. 
+## Contributing
 
-1. Regístrate en [OpenWeatherMap](https://openweathermap.org)
-2. Dirígete a "API Keys" y genera una nueva clave
-3. Crea un archivo `.env.local` en la raíz del proyecto y agrega:
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m "Add feature"`
+4. Push to the branch: `git push origin feature-name`
+5. Open a Pull Request
 
-```env
-NEXT_PUBLIC_OPENWEATHER_API_KEY=TU_API_KEY
-```
+## License
 
-### 4️⃣ Ejecutar en Desarrollo
-```bash
- npm run dev
-```
-Abre en tu navegador [http://localhost:3000](http://localhost:3000).
-
-## 🌍 Despliegue en Vercel
-
-Puedes desplegar el proyecto fácilmente en Vercel:
-```bash
- vercel
-```
-
-O manualmente a través del panel de control de [Vercel](https://vercel.com).
-
-## 🌟 Planes Futuros
-
-🔹 **Mejoras en el diseño**: Agregar animaciones, transiciones y mejoras en la paleta de colores.  
-🔹 **Selección de ciudades**: Permitir a los usuarios buscar y ver el clima de cualquier ciudad.  
-🔹 **Soporte multi-idioma**: Agregar traducciones para una experiencia más accesible.  
-🔹 **Mejor integración de mapas**: Implementar más capas de información meteorológica en los mapas.
-
-## 🤝 Contribuciones
-Las contribuciones son bienvenidas. Si encuentras un problema o tienes una idea para mejorar el proyecto:
-1. Haz un fork del repositorio
-2. Crea una nueva rama (`git checkout -b feature-nueva`)
-3. Realiza tus cambios y haz commit (`git commit -m "Descripción"`)
-4. Haz push a la rama (`git push origin feature-nueva`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-Este proyecto está bajo la Licencia MIT. ¡Disfrútalo y siéntete libre de mejorarlo! 🎉
-
-## 💖 Creado por
-Desarrollado con mucho ❤️ por [MikeDevQH](https://github.com/MikeDevQH). ¡Espero que te sea útil! 😊
+MIT © [MikeDevQH](https://github.com/MikeDevQH)

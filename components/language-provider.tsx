@@ -1,22 +1,24 @@
 "use client"
 
-import { type ReactNode, useState } from "react"
-import { LanguageContext, translations } from "@/lib/languageContext"
+import { type ReactNode, useState, useCallback } from "react"
+import { LanguageContext, translations, type TranslationKey } from "@/lib/languageContext"
 
-// Función para obtener una clave anidada en el objeto de traducciones
-const getNestedTranslation = (obj: any, path: string) => {
-  return path.split('.').reduce((acc, part) => acc && acc[part], obj) || path;
-};
+function getNestedTranslation(obj: any, path: string): string {
+  const result = path.split('.').reduce((acc, part) => acc?.[part], obj)
+  return typeof result === 'string' ? result : path
+}
 
-// Proveedor del contexto
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState("es")
 
-  // Función para obtener traducciones, ahora soporta claves anidadas
-  const t = (key: string) => {
+  const t = useCallback((key: TranslationKey | string) => {
     const currentTranslations = translations[language as keyof typeof translations]
-    return getNestedTranslation(currentTranslations, key);
-  }
+    return getNestedTranslation(currentTranslations, key)
+  }, [language])
 
-  return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+      {children}
+    </LanguageContext.Provider>
+  )
 }

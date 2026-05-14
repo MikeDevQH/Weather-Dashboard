@@ -1,6 +1,6 @@
 {
   "name": "weather-dashboard",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,24 +9,29 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "framer-motion": "^12.4.0",
     "leaflet": "^1.9.4",
-    "leaflet-openweathermap": "^1.0.0",
-    "lucide-react": "^0.483.0",
-    "next": "^15.2.3",
+    "lucide-react": "^0.487.0",
+    "next": "15.2.8",
     "next-themes": "^0.4.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-leaflet": "^5.0.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-leaflet": "^5.0.0",
+    "recharts": "^2.15.0",
+    "tailwind-merge": "^3.2.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/leaflet": "^1.9.16",
+    "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.2.3",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "eslint-config-next": "^15.3.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.8"
   }
 }
